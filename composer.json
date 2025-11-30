@@ -1,6 +1,6 @@
 {
     "name": "hellofromsteve/paystack",
-    "description": "A Laravel package for Paystack payment integration",
+    "description": "A Laravel Package for Paystack payment integration for laravel 11 and above",
     "type": "library",
     "license": "MIT",
     "authors": [
