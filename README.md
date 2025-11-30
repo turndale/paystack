@@ -44,13 +44,8 @@ $transaction = paystack('initializeTransaction', [
 $paystack = paystack();
 
 
-```
-
-
-
+```php
 // Or call methods directly
-
-
 
 $plans = paystack('getPlans');
 $transaction = paystack('initializeTransaction', [
