@@ -35,22 +35,30 @@ PAYSTACK_URL=https://api.paystack.co
 $plans = paystack()->getPlans();
 
 
-$transaction = paystack('initializeTransaction', [
+$transaction = paystack()->initializeTransaction([
     'email' => 'stephen@solentik.com',
     'amount' => 10000, // amount in the lowest form of currency (pesewas/kobo)
 ]);
+```
 
-// Get the service instance
+```php
+
+// Getting the service instance
 $paystack = paystack();
+
+// Not Recommended
+
+```
 
 
 ```php
-// Or call methods directly
+// Or pass methods directly
 
 $plans = paystack('getPlans');
+
 $transaction = paystack('initializeTransaction', [
     'email' => 'stephen@solentik.com',
-    'amount' => 10000, // amount in kobo
+    'amount' => 10000, // amount in the lowest form of currency (pesewas/kobo)
 ]);
 ```
 
