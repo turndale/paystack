@@ -1,6 +1,6 @@
 # Laravel Paystack Package
 
-A simple and elegant Laravel package for integrating Paystack payments into your Laravel application.
+A simple  Laravel package for integrating Paystack payments into your Laravel 11 and Above application.
 
 ## Installation
 
