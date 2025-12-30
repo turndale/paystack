@@ -1,34 +1,24 @@
 <?php
 
 return [
-    /*
-    |--------------------------------------------------------------------------
-    | Paystack Secret Key
-    |--------------------------------------------------------------------------
-    |
-    | Your Paystack secret key. You can get this from your Paystack dashboard.
-    |
-    */
     'secret' => env('PAYSTACK_SECRET_KEY'),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Paystack Public Key
-    |--------------------------------------------------------------------------
-    |
-    | Your Paystack public key. You can get this from your Paystack dashboard.
-    |
-    */
     'public' => env('PAYSTACK_PUBLIC_KEY'),
+    'url' => env('PAYSTACK_URL', 'https://api.paystack.co'),
+    'callback_url' => env('PAYSTACK_CALLBACK_URL', 'https://website.com/paystack/callback'),
 
     /*
     |--------------------------------------------------------------------------
-    | Paystack API URL
+    | Paystack Webhook Whitelisted IPs
     |--------------------------------------------------------------------------
     |
-    | The base URL for the Paystack API. Defaults to the production URL.
+    | Paystack currently sends webhooks from these specific IP addresses.
+    | You can override these in your .env if they change in the future.
     |
     */
-    'url' => env('PAYSTACK_URL', 'https://api.paystack.co'),
+    'white_listed_ips' => [
+        env('PAYSTACK_WHITE_LISTED_IP_1', '52.31.139.75'),
+        env('PAYSTACK_WHITE_LISTED_IP_2', '52.49.173.169'),
+        env('PAYSTACK_WHITE_LISTED_IP_3', '52.214.14.220'),
+        env('PAYSTACK_WHITE_LISTED_IP_4', 'update_if exist at https://paystack.com/docs/payments/webhooks/#ip-whitelisting'), 
+    ],
 ];
-

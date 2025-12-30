@@ -14,11 +14,12 @@ if (!function_exists('paystack')) {
     {
         $service = app(PaystackService::class);
         
-        if ($method === null) {
+        if (is_null($method)) {
             return $service;
         }
 
-        return $service->$method(...$args);
+        // This ensures the method exists on the service before calling it
+        return call_user_func_array([$service, $method], $args);
     }
 }
 
