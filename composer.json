@@ -1,12 +1,12 @@
 {
-    "name": "hellofromsteve/paystack",
+    "name": "stephenasaredev/paystack",
     "description": "A Laravel Package for Paystack payment integration for laravel 11 and above",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "Stephen Asare",
-            "email": "stephen@solentik.com"
+            "email": "me@stephenasare.dev"
         }
     ],
     "require": {
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "HelloFromSteve\\Paystack\\": "src/"
+            "StephenAsare\\Paystack\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -28,16 +28,16 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "HelloFromSteve\\Paystack\\Tests\\": "tests/"
+            "StephenAsare\\Paystack\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "HelloFromSteve\\Paystack\\PaystackServiceProvider"
+                "StephenAsare\\Paystack\\PaystackServiceProvider"
             ],
             "aliases": {
-                "Paystack": "HelloFromSteve\\Paystack\\Facades\\Paystack"
+                "Paystack": "StephenAsare\\Paystack\\Facades\\Paystack"
             }
         },
         "branch-alias": {

@@ -1,11 +1,11 @@
 <?php
 
-namespace HelloFromSteve\Paystack\Contracts;
+namespace StephenAsare\Paystack\Contracts;
 
-use HelloFromSteve\Paystack\Models\PaystackCustomer;
+use StephenAsare\Paystack\Models\PaystackCustomer;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use HelloFromSteve\Paystack\SubscriptionBuilder;
+use StephenAsare\Paystack\SubscriptionBuilder;
 
 interface Billable
 {

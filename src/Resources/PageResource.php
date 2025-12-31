@@ -1,9 +1,9 @@
 <?php
 
 
-namespace HelloFromSteve\Paystack\Resources;
+namespace StephenAsare\Paystack\Resources;
 
-use HelloFromSteve\Paystack\Exceptions\PaystackException;
+use StephenAsare\Paystack\Exceptions\PaystackException;
 use Illuminate\Http\Client\ConnectionException;
 
 class PageResource extends BaseResource

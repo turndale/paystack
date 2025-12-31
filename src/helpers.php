@@ -1,6 +1,6 @@
 <?php
 
-use HelloFromSteve\Paystack\PaystackService;
+use StephenAsare\Paystack\PaystackService;
 
 if (!function_exists('paystack')) {
     /**

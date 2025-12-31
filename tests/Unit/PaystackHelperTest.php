@@ -1,10 +1,10 @@
 <?php
 
-namespace HelloFromSteve\Paystack\Tests\Unit;
+namespace StephenAsare\Paystack\Tests\Unit;
 
-use HelloFromSteve\Paystack\PaystackService;
-use HelloFromSteve\Paystack\Resources\TransactionResource;
-use HelloFromSteve\Paystack\Tests\PaystackTestCase;
+use StephenAsare\Paystack\PaystackService;
+use StephenAsare\Paystack\Resources\TransactionResource;
+use StephenAsare\Paystack\Tests\PaystackTestCase;
 use PHPUnit\Framework\Attributes\Test;
 
 class PaystackHelperTest extends PaystackTestCase

@@ -1,11 +1,11 @@
 <?php
 
-namespace HelloFromSteve\Paystack\Tests\Unit;
+namespace StephenAsare\Paystack\Tests\Unit;
 
-use HelloFromSteve\Paystack\Models\PaystackCustomer;
-use HelloFromSteve\Paystack\Models\PaystackSubscription;
-use HelloFromSteve\Paystack\Tests\PaystackTestCase;
-use HelloFromSteve\Paystack\Traits\HasPaystack;
+use StephenAsare\Paystack\Models\PaystackCustomer;
+use StephenAsare\Paystack\Models\PaystackSubscription;
+use StephenAsare\Paystack\Tests\PaystackTestCase;
+use StephenAsare\Paystack\Traits\HasPaystack;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\Attributes\Test;

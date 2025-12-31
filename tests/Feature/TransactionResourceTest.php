@@ -1,12 +1,12 @@
 <?php
 
-namespace HelloFromSteve\Paystack\Tests\Feature;
+namespace StephenAsare\Paystack\Tests\Feature;
 
-use HelloFromSteve\Paystack\Exceptions\PaystackException;
+use StephenAsare\Paystack\Exceptions\PaystackException;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
-use HelloFromSteve\Paystack\Tests\PaystackTestCase;
-use HelloFromSteve\Paystack\Facades\Paystack;
+use StephenAsare\Paystack\Tests\PaystackTestCase;
+use StephenAsare\Paystack\Facades\Paystack;
 use PHPUnit\Framework\Attributes\Test;
 
 class TransactionResourceTest extends PaystackTestCase
@@ -106,7 +106,7 @@ class TransactionResourceTest extends PaystackTestCase
             ], 401)
         ]);
 
-        $this->expectException(\HelloFromSteve\Paystack\Exceptions\PaystackException::class);
+        $this->expectException(\StephenAsare\Paystack\Exceptions\PaystackException::class);
 
         Paystack::transaction()->initialize(['email' => 'test@test.com', 'amount' => 100]);
     }

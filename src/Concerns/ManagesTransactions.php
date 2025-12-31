@@ -1,8 +1,8 @@
 <?php
 
-namespace HelloFromSteve\Paystack\Concerns;
+namespace StephenAsare\Paystack\Concerns;
 
-use HelloFromSteve\Paystack\Models\PaystackTransaction;
+use StephenAsare\Paystack\Models\PaystackTransaction;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait ManagesTransactions

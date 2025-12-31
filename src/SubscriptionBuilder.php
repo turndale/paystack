@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace HelloFromSteve\Paystack;
+namespace StephenAsare\Paystack;
 
 use Illuminate\Database\Eloquent\Model;
-use HelloFromSteve\Paystack\Models\PaystackSubscription;
-use HelloFromSteve\Paystack\Exceptions\PaystackException;
-use HelloFromSteve\Paystack\Contracts\Billable;
+use StephenAsare\Paystack\Models\PaystackSubscription;
+use StephenAsare\Paystack\Exceptions\PaystackException;
+use StephenAsare\Paystack\Contracts\Billable;
 
 class SubscriptionBuilder
 {

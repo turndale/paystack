@@ -2,9 +2,9 @@
 
 A robust, Cashier-like Paystack integration package for Laravel 11+. This package provides an expressive, fluent interface to Paystack's subscription billing services, handling boilerplate subscription code so you can focus on building your application.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/hellofromsteve/paystack.svg?style=flat-square)](https://packagist.org/packages/hellofromsteve/paystack)
-[![Total Downloads](https://img.shields.io/packagist/dt/hellofromsteve/paystack.svg?style=flat-square)](https://packagist.org/packages/hellofromsteve/paystack)
-[![License](https://img.shields.io/packagist/l/hellofromsteve/paystack.svg?style=flat-square)](https://packagist.org/packages/hellofromsteve/paystack)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/stephenasare/paystack.svg?style=flat-square)](https://packagist.org/packages/stephenasare/paystack)
+[![Total Downloads](https://img.shields.io/packagist/dt/stephenasare/paystack.svg?style=flat-square)](https://packagist.org/packages/stephenasare/paystack)
+[![License](https://img.shields.io/packagist/l/stephenasare/paystack.svg?style=flat-square)](https://packagist.org/packages/stephenasare/paystack)
 
 ## Documentation
 
@@ -34,7 +34,7 @@ For full documentation, usage guides, and API reference, please visit:
 You can install the package via composer:
 
 ```bash
-composer require hellofromsteve/paystack
+composer require stephenasare/paystack
 ```
 
 After installing, run the installation command to publish the configuration and migrations:
@@ -55,8 +55,8 @@ This will:
 Add the `Billable` trait to your User model:
 
 ```php
-use HelloFromSteve\Paystack\Traits\HasPaystack;
-use HelloFromSteve\Paystack\Contracts\Billable;
+use StephenAsare\Paystack\Traits\HasPaystack;
+use StephenAsare\Paystack\Contracts\Billable;
 
 class User extends Authenticatable implements Billable
 {
@@ -96,7 +96,7 @@ The package automatically handles Paystack webhooks for you. Just set up your we
 You can listen to events in your application:
 
 ```php
-use HelloFromSteve\Paystack\Events\PaymentSuccess;
+use StephenAsare\Paystack\Events\PaymentSuccess;
 
 Event::listen(PaymentSuccess::class, function ($event) {
     // Handle successful payment...
@@ -109,7 +109,7 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## Credits
 
-- [Stephen Asare](https://github.com/hellofromsteve)
+- [Stephen Asare](https://github.com/stephenasare)
 - [All Contributors](../../contributors)
 
 ## License
@@ -121,6 +121,6 @@ MIT
 ## Support
 
 If you find this package helpful, please consider:
--  Starring the repository on [GitHub](https://github.com/hellofromsteve/paystack)
--  Following me on [Twitter/X](https://x.com/hellofromsteve1)
+-  Starring the repository on [GitHub](https://github.com/stephenasare/paystack)
+-  Following me on [Twitter/X](https://x.com/stephenasare1)
 

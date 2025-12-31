@@ -1,9 +1,9 @@
 <?php
 
-namespace HelloFromSteve\Paystack\Concerns;
+namespace StephenAsare\Paystack\Concerns;
 
-use HelloFromSteve\Paystack\Models\PaystackCustomer;
-use HelloFromSteve\Paystack\Exceptions\PaystackException;
+use StephenAsare\Paystack\Models\PaystackCustomer;
+use StephenAsare\Paystack\Exceptions\PaystackException;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Http\Client\ConnectionException;
 

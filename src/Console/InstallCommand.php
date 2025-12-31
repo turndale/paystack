@@ -1,6 +1,6 @@
 <?php
 
-namespace HelloFromSteve\Paystack\Console;
+namespace StephenAsare\Paystack\Console;
 
 use Illuminate\Console\Command;
 

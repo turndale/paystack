@@ -1,5 +1,5 @@
 <?php
-namespace HelloFromSteve\Paystack\Exceptions;
+namespace StephenAsare\Paystack\Exceptions;
 
 use Exception;
 

@@ -1,24 +1,24 @@
 <?php
 
 
-namespace HelloFromSteve\Paystack;
+namespace StephenAsare\Paystack;
 
-use HelloFromSteve\Paystack\Resources\TransactionResource;
-use HelloFromSteve\Paystack\Resources\PlanResource;
-use HelloFromSteve\Paystack\Resources\SubscriptionResource;
-use HelloFromSteve\Paystack\Resources\CustomerResource;
-use HelloFromSteve\Paystack\Resources\PageResource;
-use HelloFromSteve\Paystack\Resources\ProductResource;
-use HelloFromSteve\Paystack\Resources\PaymentRequestResource;
-use HelloFromSteve\Paystack\Resources\SettlementResource;
-use HelloFromSteve\Paystack\Resources\TransferRecipientResource;
-use HelloFromSteve\Paystack\Resources\TransferResource;
-use HelloFromSteve\Paystack\Resources\TransferControlResource;
-use HelloFromSteve\Paystack\Resources\ChargeResource;
-use HelloFromSteve\Paystack\Resources\DisputeResource;
-use HelloFromSteve\Paystack\Resources\RefundResource;
-use HelloFromSteve\Paystack\Resources\VerificationResource;
-use HelloFromSteve\Paystack\Resources\MiscellaneousResource;
+use StephenAsare\Paystack\Resources\TransactionResource;
+use StephenAsare\Paystack\Resources\PlanResource;
+use StephenAsare\Paystack\Resources\SubscriptionResource;
+use StephenAsare\Paystack\Resources\CustomerResource;
+use StephenAsare\Paystack\Resources\PageResource;
+use StephenAsare\Paystack\Resources\ProductResource;
+use StephenAsare\Paystack\Resources\PaymentRequestResource;
+use StephenAsare\Paystack\Resources\SettlementResource;
+use StephenAsare\Paystack\Resources\TransferRecipientResource;
+use StephenAsare\Paystack\Resources\TransferResource;
+use StephenAsare\Paystack\Resources\TransferControlResource;
+use StephenAsare\Paystack\Resources\ChargeResource;
+use StephenAsare\Paystack\Resources\DisputeResource;
+use StephenAsare\Paystack\Resources\RefundResource;
+use StephenAsare\Paystack\Resources\VerificationResource;
+use StephenAsare\Paystack\Resources\MiscellaneousResource;
 
 
 

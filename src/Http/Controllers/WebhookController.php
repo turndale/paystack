@@ -1,23 +1,23 @@
 <?php
 
-namespace HelloFromSteve\Paystack\Http\Controllers;
+namespace StephenAsare\Paystack\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
-use HelloFromSteve\Paystack\Events\WebhookReceived;
-use HelloFromSteve\Paystack\Events\WebhookHandled;
-use HelloFromSteve\Paystack\Events\PaymentSuccess;
-use HelloFromSteve\Paystack\Events\SubscriptionCreated;
-use HelloFromSteve\Paystack\Events\SubscriptionUpdated;
-use HelloFromSteve\Paystack\Events\InvoiceCreated;
-use HelloFromSteve\Paystack\Events\InvoiceUpdated;
-use HelloFromSteve\Paystack\Events\InvoicePaymentFailed;
-use HelloFromSteve\Paystack\Events\ChargeDisputeCreated;
-use HelloFromSteve\Paystack\Events\TransferSuccess;
-use HelloFromSteve\Paystack\Events\TransferFailed;
-use HelloFromSteve\Paystack\Models\PaystackSubscription;
+use StephenAsare\Paystack\Events\WebhookReceived;
+use StephenAsare\Paystack\Events\WebhookHandled;
+use StephenAsare\Paystack\Events\PaymentSuccess;
+use StephenAsare\Paystack\Events\SubscriptionCreated;
+use StephenAsare\Paystack\Events\SubscriptionUpdated;
+use StephenAsare\Paystack\Events\InvoiceCreated;
+use StephenAsare\Paystack\Events\InvoiceUpdated;
+use StephenAsare\Paystack\Events\InvoicePaymentFailed;
+use StephenAsare\Paystack\Events\ChargeDisputeCreated;
+use StephenAsare\Paystack\Events\TransferSuccess;
+use StephenAsare\Paystack\Events\TransferFailed;
+use StephenAsare\Paystack\Models\PaystackSubscription;
 
 class WebhookController extends Controller
 {

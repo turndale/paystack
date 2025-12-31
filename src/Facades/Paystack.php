@@ -1,29 +1,29 @@
 <?php
 
 
-namespace HelloFromSteve\Paystack\Facades;
+namespace StephenAsare\Paystack\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static \HelloFromSteve\Paystack\Resources\TransactionResource transaction()
- * @method static \HelloFromSteve\Paystack\Resources\PlanResource plan()
- * @method static \HelloFromSteve\Paystack\Resources\SubscriptionResource subscription()
- * @method static \HelloFromSteve\Paystack\Resources\CustomerResource customer()
- * @method static \HelloFromSteve\Paystack\Resources\PageResource page()
- * @method static \HelloFromSteve\Paystack\Resources\ProductResource product()
- * @method static \HelloFromSteve\Paystack\Resources\PaymentRequestResource paymentRequest()
- * @method static \HelloFromSteve\Paystack\Resources\SettlementResource settlement()
- * @method static \HelloFromSteve\Paystack\Resources\TransferRecipientResource transferRecipient()
- * @method static \HelloFromSteve\Paystack\Resources\TransferResource transfer()
- * @method static \HelloFromSteve\Paystack\Resources\TransferControlResource transferControl()
- * @method static \HelloFromSteve\Paystack\Resources\ChargeResource charge()
- * @method static \HelloFromSteve\Paystack\Resources\DisputeResource dispute()
- * @method static \HelloFromSteve\Paystack\Resources\RefundResource refund()
- * @method static \HelloFromSteve\Paystack\Resources\VerificationResource verification()
- * @method static \HelloFromSteve\Paystack\Resources\MiscellaneousResource miscellaneous()
+ * @method static \StephenAsare\Paystack\Resources\TransactionResource transaction()
+ * @method static \StephenAsare\Paystack\Resources\PlanResource plan()
+ * @method static \StephenAsare\Paystack\Resources\SubscriptionResource subscription()
+ * @method static \StephenAsare\Paystack\Resources\CustomerResource customer()
+ * @method static \StephenAsare\Paystack\Resources\PageResource page()
+ * @method static \StephenAsare\Paystack\Resources\ProductResource product()
+ * @method static \StephenAsare\Paystack\Resources\PaymentRequestResource paymentRequest()
+ * @method static \StephenAsare\Paystack\Resources\SettlementResource settlement()
+ * @method static \StephenAsare\Paystack\Resources\TransferRecipientResource transferRecipient()
+ * @method static \StephenAsare\Paystack\Resources\TransferResource transfer()
+ * @method static \StephenAsare\Paystack\Resources\TransferControlResource transferControl()
+ * @method static \StephenAsare\Paystack\Resources\ChargeResource charge()
+ * @method static \StephenAsare\Paystack\Resources\DisputeResource dispute()
+ * @method static \StephenAsare\Paystack\Resources\RefundResource refund()
+ * @method static \StephenAsare\Paystack\Resources\VerificationResource verification()
+ * @method static \StephenAsare\Paystack\Resources\MiscellaneousResource miscellaneous()
  *
- *  @see \HelloFromSteve\Paystack\PaystackService
+ *  @see \StephenAsare\Paystack\PaystackService
  */
 class Paystack extends Facade
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace HelloFromSteve\Paystack\Middleware;
+namespace StephenAsare\Paystack\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

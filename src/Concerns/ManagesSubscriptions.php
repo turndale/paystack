@@ -1,9 +1,9 @@
 <?php
 
-namespace HelloFromSteve\Paystack\Concerns;
+namespace StephenAsare\Paystack\Concerns;
 
-use HelloFromSteve\Paystack\Models\PaystackSubscription;
-use HelloFromSteve\Paystack\SubscriptionBuilder;
+use StephenAsare\Paystack\Models\PaystackSubscription;
+use StephenAsare\Paystack\SubscriptionBuilder;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait ManagesSubscriptions

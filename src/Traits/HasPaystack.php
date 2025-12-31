@@ -1,10 +1,10 @@
 <?php
 
-namespace HelloFromSteve\Paystack\Traits;
+namespace StephenAsare\Paystack\Traits;
 
-use HelloFromSteve\Paystack\Concerns\ManagesCustomer;
-use HelloFromSteve\Paystack\Concerns\ManagesSubscriptions;
-use HelloFromSteve\Paystack\Concerns\ManagesTransactions;
+use StephenAsare\Paystack\Concerns\ManagesCustomer;
+use StephenAsare\Paystack\Concerns\ManagesSubscriptions;
+use StephenAsare\Paystack\Concerns\ManagesTransactions;
 
 trait HasPaystack
 {
