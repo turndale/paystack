@@ -5,7 +5,7 @@ A robust, Cashier-like Paystack integration package for Laravel 11+. This packag
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/stephenasaredev/paystack.svg?style=flat-square)](https://packagist.org/packages/stephenasaredev/paystack)
 [![Total Downloads](https://img.shields.io/packagist/dt/stephenasaredev/paystack.svg?style=flat-square)](https://packagist.org/packages/stephenasaredev/paystack)
 [![License](https://img.shields.io/packagist/l/stephenasaredev/paystack.svg?style=flat-square)](https://packagist.org/packages/stephenasaredev/paystack)
-[![License]https://img.shields.io/packagist/l/stephenasaredev/paystack.svg?style=flat-square&kill_cache=1
+[![License](https://img.shields.io/packagist/l/stephenasaredev/paystack.svg?style=flat-square&kill_cache=1)](https://packagist.org/packages/stephenasaredev/paystack)
 
 ## Documentation
 
