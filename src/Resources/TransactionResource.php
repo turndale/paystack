@@ -10,7 +10,7 @@ class TransactionResource extends BaseResource
 {
     /**
      * Initialize a transaction to generate a checkout link.
-     * * @param array $payload ['email', 'amount', 'callback_url', 'plan', 'metadata', 'channels']
+     * @param array $payload ['email', 'amount', 'callback_url', 'plan', 'metadata', 'channels']
      * @return array The Paystack API response containing authorization_url and access_code
      * @throws PaystackException|ConnectionException
      */
@@ -28,12 +28,14 @@ class TransactionResource extends BaseResource
             $payload['metadata'] = json_encode($payload['metadata']);
         }
 
-        return $this->handleResponse($this->request()->post("$this->baseUrl/transaction/initialize", $payload));
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->post("$this->baseUrl/transaction/initialize", $payload);
+        return $this->handleResponse($response);
     }
 
     /**
      * Helper to get only the redirect URL for a transaction.
-     * * @param array $payload
+     * @param array $payload
      * @return string Redirect URL to Paystack Checkout
      * @throws PaystackException|ConnectionException
      */
@@ -45,34 +47,40 @@ class TransactionResource extends BaseResource
 
     /**
      * Confirm the status of a transaction.
-     * * @param string $reference Unique case-sensitive transaction reference
+     * @param string $reference Unique case-sensitive transaction reference
      * @return array Transaction details and status
      * @throws PaystackException|ConnectionException
      */
     public function verify(string $reference): array
     {
-        return $this->handleResponse($this->request()->get("$this->baseUrl/transaction/verify/$reference"));
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->get("$this->baseUrl/transaction/verify/$reference");
+        return $this->handleResponse($response);
     }
 
     /**
      * List transactions carried out on your integration.
-     * * @param array $filters ['perPage', 'page', 'customer', 'status', 'from', 'to']
+     * @param array $filters ['perPage', 'page', 'customer', 'status', 'from', 'to']
      * @return array
      * @throws PaystackException|ConnectionException
      */
     public function list(array $filters = []): array
     {
-        return $this->handleResponse($this->request()->get("$this->baseUrl/transaction", $filters));
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->get("$this->baseUrl/transaction", $filters);
+        return $this->handleResponse($response);
     }
 
     /**
      * Get details of a single transaction.
-     * * @param string|int $id Transaction ID
+     * @param string|int $id Transaction ID
      * @return array
      * @throws PaystackException|ConnectionException
      */
     public function fetch(string|int $id): array
     {
-        return $this->handleResponse($this->request()->get("$this->baseUrl/transaction/$id"));
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->get("$this->baseUrl/transaction/$id");
+        return $this->handleResponse($response);
     }
 }

@@ -4,7 +4,7 @@ return [
     'secret' => env('PAYSTACK_SECRET_KEY'),
     'public' => env('PAYSTACK_PUBLIC_KEY'),
     'url' => env('PAYSTACK_URL', 'https://api.paystack.co'),
-    'callback_url' => env('PAYSTACK_CALLBACK_URL', 'https://website.com/paystack/callback'),
+    'callback_url' => env('PAYSTACK_CALLBACK_URL', ''),
     'webhook_path' => env('PAYSTACK_WEBHOOK_PATH', 'paystack/webhook'),
 
     /*

@@ -14,39 +14,42 @@ class TransferControlResource extends BaseResource
      */
     public function checkBalance(): array
     {
-        return $this->handleResponse(
-            $this->request()->get("$this->baseUrl/balance")
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->get("$this->baseUrl/balance");
+
+        return $this->handleResponse($response);
     }
 
     /**
      * Fetch all pay-ins and pay-outs that occurred on your integration.
-     * * @param array $filters ['perPage', 'page', 'from', 'to']
+     * @param array $filters ['perPage', 'page', 'from', 'to']
      * @return array The balance ledger data
      * @throws PaystackException|ConnectionException
      */
     public function fetchLedger(array $filters = []): array
     {
-        return $this->handleResponse(
-            $this->request()->get("$this->baseUrl/balance/ledger", $filters)
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->get("$this->baseUrl/balance/ledger", $filters);
+
+        return $this->handleResponse($response);
     }
 
     /**
      * Generates a new OTP and sends it to the business phone number.
-     * * @param string $transferCode The code for the transfer
+     * @param string $transferCode The code for the transfer
      * @param string $reason Either 'resend_otp' or 'transfer'
      * @return array
      * @throws PaystackException|ConnectionException
      */
     public function resendOtp(string $transferCode, string $reason = 'resend_otp'): array
     {
-        return $this->handleResponse(
-            $this->request()->post("$this->baseUrl/transfer/resend_otp", [
-                'transfer_code' => $transferCode,
-                'reason' => $reason
-            ])
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->post("$this->baseUrl/transfer/resend_otp", [
+            'transfer_code' => $transferCode,
+            'reason' => $reason
+        ]);
+
+        return $this->handleResponse($response);
     }
 
     /**
@@ -57,24 +60,26 @@ class TransferControlResource extends BaseResource
      */
     public function disableOtpRequest(): array
     {
-        return $this->handleResponse(
-            $this->request()->post("$this->baseUrl/transfer/disable_otp")
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->post("$this->baseUrl/transfer/disable_otp");
+
+        return $this->handleResponse($response);
     }
 
     /**
      * Finalize the request to disable OTP on your transfers.
-     * * @param string $otp The OTP sent to the business phone
+     * @param string $otp The OTP sent to the business phone
      * @return array
      * @throws PaystackException|ConnectionException
      */
     public function disableOtpFinalize(string $otp): array
     {
-        return $this->handleResponse(
-            $this->request()->post("$this->baseUrl/transfer/disable_otp_finalize", [
-                'otp' => $otp
-            ])
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->post("$this->baseUrl/transfer/disable_otp_finalize", [
+            'otp' => $otp
+        ]);
+
+        return $this->handleResponse($response);
     }
 
     /**
@@ -84,8 +89,9 @@ class TransferControlResource extends BaseResource
      */
     public function enableOtp(): array
     {
-        return $this->handleResponse(
-            $this->request()->post("$this->baseUrl/transfer/enable_otp")
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->post("$this->baseUrl/transfer/enable_otp");
+
+        return $this->handleResponse($response);
     }
 }

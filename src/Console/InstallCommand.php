@@ -19,7 +19,7 @@ class InstallCommand extends Command
             '--tag' => 'paystack-config',
         ]);
 
-        if ($this->confirm('Do you wish to publish the migrations (required for Subscriptions)?')) {
+        if ($this->confirm('Do you wish to publish the migrations for subscriptions?')) {
             $this->comment('Publishing Migrations...');
             $this->call('vendor:publish', [
                 '--tag' => 'paystack-migrations',

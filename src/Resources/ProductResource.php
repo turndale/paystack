@@ -9,7 +9,7 @@ class ProductResource extends BaseResource
 {
     /**
      * Create a product on your integration.
-     * * @param array $payload ['name', 'description', 'price', 'currency', 'unlimited', 'quantity']
+     * @param array $payload ['name', 'description', 'price', 'currency', 'unlimited', 'quantity']
      * @return array The created product details
      * @throws PaystackException|ConnectionException
      */
@@ -19,40 +19,43 @@ class ProductResource extends BaseResource
             $payload['price'] = (int) $payload['price'];
         }
 
-        return $this->handleResponse(
-            $this->request()->post("$this->baseUrl/product", $payload)
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->post("$this->baseUrl/product", $payload);
+
+        return $this->handleResponse($response);
     }
 
     /**
      * List products available on your integration.
-     * * @param array $filters ['perPage', 'page', 'from', 'to']
+     * @param array $filters ['perPage', 'page', 'from', 'to']
      * @return array
      * @throws PaystackException|ConnectionException
      */
     public function list(array $filters = []): array
     {
-        return $this->handleResponse(
-            $this->request()->get("$this->baseUrl/product", $filters)
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->get("$this->baseUrl/product", $filters);
+
+        return $this->handleResponse($response);
     }
 
     /**
      * Get details of a product on your integration.
-     * * @param string|int $id The product ID
+     * @param string|int $id The product ID
      * @return array
      * @throws PaystackException|ConnectionException
      */
     public function fetch(string|int $id): array
     {
-        return $this->handleResponse(
-            $this->request()->get("$this->baseUrl/product/$id")
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->get("$this->baseUrl/product/$id");
+
+        return $this->handleResponse($response);
     }
 
     /**
      * Update a product's details.
-     * * @param string|int $id Product ID
+     * @param string|int $id Product ID
      * @param array $payload ['name', 'description', 'price', 'currency', 'unlimited', 'quantity']
      * @return array
      * @throws PaystackException|ConnectionException
@@ -63,8 +66,9 @@ class ProductResource extends BaseResource
             $payload['price'] = (int) $payload['price'];
         }
 
-        return $this->handleResponse(
-            $this->request()->put("$this->baseUrl/product/$id", $payload)
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->put("$this->baseUrl/product/$id", $payload);
+
+        return $this->handleResponse($response);
     }
 }

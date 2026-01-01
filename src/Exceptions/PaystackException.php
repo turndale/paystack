@@ -1,9 +1,9 @@
 <?php
 namespace StephenAsare\Paystack\Exceptions;
 
-use Exception;
+use RunTimeException;
 
-class PaystackException extends Exception 
+class PaystackException extends RunTimeException 
 {
     protected string $type;
     protected ?string $paystackCode;

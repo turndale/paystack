@@ -10,7 +10,7 @@ class PageResource extends BaseResource
 {
     /**
      * Create a payment page on your integration.
-     * * @param array $payload ['name', 'description', 'amount', 'slug', 'redirect_url', etc.]
+     * @param array $payload ['name', 'description', 'amount', 'slug', 'redirect_url', etc.]
      * @return array Created page details
      * @throws PaystackException|ConnectionException
      */
@@ -20,40 +20,43 @@ class PageResource extends BaseResource
             $payload['amount'] = (int) $payload['amount'];
         }
 
-        return $this->handleResponse(
-            $this->request()->post("$this->baseUrl/page", $payload)
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->post("$this->baseUrl/page", $payload);
+
+        return $this->handleResponse($response);
     }
 
     /**
      * List payment pages available on your integration.
-     * * @param array $filters ['perPage', 'page', 'from', 'to']
+     * @param array $filters ['perPage', 'page', 'from', 'to']
      * @return array
      * @throws PaystackException|ConnectionException
      */
     public function list(array $filters = []): array
     {
-        return $this->handleResponse(
-            $this->request()->get("$this->baseUrl/page", $filters)
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->get("$this->baseUrl/page", $filters);
+
+        return $this->handleResponse($response);
     }
 
     /**
      * Get details of a payment page.
-     * * @param string $idOrSlug The page ID or URL slug
+     * @param string $idOrSlug The page ID or URL slug
      * @return array
      * @throws PaystackException|ConnectionException
      */
     public function fetch(string $idOrSlug): array
     {
-        return $this->handleResponse(
-            $this->request()->get("$this->baseUrl/page/$idOrSlug")
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->get("$this->baseUrl/page/$idOrSlug");
+
+        return $this->handleResponse($response);
     }
 
     /**
      * Update a payment page details.
-     * * @param string $idOrSlug
+     * @param string $idOrSlug
      * @param array $payload ['name', 'description', 'amount', 'active']
      * @return array
      * @throws PaystackException|ConnectionException
@@ -64,37 +67,40 @@ class PageResource extends BaseResource
             $payload['amount'] = (int) $payload['amount'];
         }
 
-        return $this->handleResponse(
-            $this->request()->put("$this->baseUrl/page/$idOrSlug", $payload)
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->put("$this->baseUrl/page/$idOrSlug", $payload);
+
+        return $this->handleResponse($response);
     }
 
     /**
      * Check the availability of a slug for a payment page.
-     * * @param string $slug
+     * @param string $slug
      * @return array
      * @throws PaystackException|ConnectionException
      */
     public function checkSlugAvailability(string $slug): array
     {
-        return $this->handleResponse(
-            $this->request()->get("$this->baseUrl/page/check_slug_availability/$slug")
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->get("$this->baseUrl/page/check_slug_availability/$slug");
+
+        return $this->handleResponse($response);
     }
 
     /**
      * Add products to a payment page.
-     * * @param int $id ID of the payment page
+     * @param int $id ID of the payment page
      * @param array $products Array of product IDs [123, 456]
      * @return array
      * @throws PaystackException|ConnectionException
      */
     public function addProducts(int $id, array $products): array
     {
-        return $this->handleResponse(
-            $this->request()->post("$this->baseUrl/page/$id/product", [
-                'product' => $products
-            ])
-        );
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->post("$this->baseUrl/page/$id/product", [
+            'product' => $products
+        ]);
+
+        return $this->handleResponse($response);
     }
 }
