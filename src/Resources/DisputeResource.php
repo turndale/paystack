@@ -4,7 +4,6 @@
 namespace StephenAsare\Paystack\Resources;
 
 use StephenAsare\Paystack\Exceptions\PaystackException;
-use Illuminate\Http\Client\ConnectionException;
 
 class DisputeResource extends BaseResource
 {
@@ -12,7 +11,7 @@ class DisputeResource extends BaseResource
      * List disputes filed against your integration.
      * @param array $filters ['from', 'to', 'perPage', 'page', 'transaction', 'status']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function list(array $filters = []): array
     {
@@ -25,7 +24,7 @@ class DisputeResource extends BaseResource
      * Get more details about a specific dispute.
      * @param string|int $id The dispute ID
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function fetch(string|int $id): array
     {
@@ -38,7 +37,7 @@ class DisputeResource extends BaseResource
      * Retrieve disputes for a particular transaction.
      * @param string|int $transactionId
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function listByTransaction(string|int $transactionId): array
     {
@@ -52,7 +51,7 @@ class DisputeResource extends BaseResource
      * @param string|int $id Dispute ID
      * @param array $payload ['refund_amount', 'uploaded_filename']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function update(string|int $id, array $payload): array
     {
@@ -70,7 +69,7 @@ class DisputeResource extends BaseResource
      * @param string|int $id Dispute ID
      * @param array $payload ['customer_email', 'customer_name', 'customer_phone', 'service_details', etc.]
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function addEvidence(string|int $id, array $payload): array
     {
@@ -84,7 +83,7 @@ class DisputeResource extends BaseResource
      * @param string|int $id Dispute ID
      * @param string $filename The name of the file with extension (e.g. evidence.pdf)
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function getUploadUrl(string|int $id, string $filename): array
     {
@@ -100,7 +99,7 @@ class DisputeResource extends BaseResource
      * @param string|int $id Dispute ID
      * @param array $payload ['resolution', 'message', 'refund_amount', 'uploaded_filename', 'evidence']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function resolve(string|int $id, array $payload): array
     {
@@ -117,7 +116,7 @@ class DisputeResource extends BaseResource
      * Export disputes available on your integration as a report.
      * @param array $filters ['from', 'to', 'perPage', 'page', 'transaction', 'status']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function export(array $filters = []): array
     {

@@ -3,14 +3,13 @@
 namespace StephenAsare\Paystack\Resources;
 
 use StephenAsare\Paystack\Exceptions\PaystackException;
-use Illuminate\Http\Client\ConnectionException;
 
 class TransferControlResource extends BaseResource
 {
     /**
      * Fetch the available balance on your integration.
      * * @return array List of balances per currency
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function checkBalance(): array
     {
@@ -24,7 +23,7 @@ class TransferControlResource extends BaseResource
      * Fetch all pay-ins and pay-outs that occurred on your integration.
      * @param array $filters ['perPage', 'page', 'from', 'to']
      * @return array The balance ledger data
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function fetchLedger(array $filters = []): array
     {
@@ -39,7 +38,7 @@ class TransferControlResource extends BaseResource
      * @param string $transferCode The code for the transfer
      * @param string $reason Either 'resend_otp' or 'transfer'
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function resendOtp(string $transferCode, string $reason = 'resend_otp'): array
     {
@@ -56,7 +55,7 @@ class TransferControlResource extends BaseResource
      * Request to disable the OTP requirement for transfers.
      * Paystack will send an OTP to the business phone to verify this request.
      * * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function disableOtpRequest(): array
     {
@@ -70,7 +69,7 @@ class TransferControlResource extends BaseResource
      * Finalize the request to disable OTP on your transfers.
      * @param string $otp The OTP sent to the business phone
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function disableOtpFinalize(string $otp): array
     {
@@ -85,7 +84,7 @@ class TransferControlResource extends BaseResource
     /**
      * Re-enable the OTP requirement for transfers.
      * * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function enableOtp(): array
     {

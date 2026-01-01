@@ -3,7 +3,6 @@
 namespace StephenAsare\Paystack\Resources;
 
 use StephenAsare\Paystack\Exceptions\PaystackException;
-use Illuminate\Http\Client\ConnectionException;
 
 class RefundResource extends BaseResource
 {
@@ -11,7 +10,7 @@ class RefundResource extends BaseResource
      * Initiate a refund on your integration.
      * @param array $payload ['transaction', 'amount', 'currency', 'customer_note', 'merchant_note']
      * @return array The refund details and status
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function create(array $payload): array
     {
@@ -31,7 +30,7 @@ class RefundResource extends BaseResource
      * @param int $id The ID of the previously initiated refund
      * @param array $accountDetails ['currency', 'account_number', 'bank_id']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function retry(int $id, array $accountDetails): array
     {
@@ -47,7 +46,7 @@ class RefundResource extends BaseResource
      * List refunds available on your integration.
      * @param array $filters ['transaction', 'currency', 'from', 'to', 'perPage', 'page']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function list(array $filters = []): array
     {
@@ -61,7 +60,7 @@ class RefundResource extends BaseResource
      * Get details of a specific refund.
      * @param int $id The ID of the refund
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function fetch(int $id): array
     {

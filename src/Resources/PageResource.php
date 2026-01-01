@@ -4,7 +4,6 @@
 namespace StephenAsare\Paystack\Resources;
 
 use StephenAsare\Paystack\Exceptions\PaystackException;
-use Illuminate\Http\Client\ConnectionException;
 
 class PageResource extends BaseResource
 {
@@ -12,7 +11,7 @@ class PageResource extends BaseResource
      * Create a payment page on your integration.
      * @param array $payload ['name', 'description', 'amount', 'slug', 'redirect_url', etc.]
      * @return array Created page details
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function create(array $payload): array
     {
@@ -30,7 +29,7 @@ class PageResource extends BaseResource
      * List payment pages available on your integration.
      * @param array $filters ['perPage', 'page', 'from', 'to']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function list(array $filters = []): array
     {
@@ -44,7 +43,7 @@ class PageResource extends BaseResource
      * Get details of a payment page.
      * @param string $idOrSlug The page ID or URL slug
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function fetch(string $idOrSlug): array
     {
@@ -59,7 +58,7 @@ class PageResource extends BaseResource
      * @param string $idOrSlug
      * @param array $payload ['name', 'description', 'amount', 'active']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function update(string $idOrSlug, array $payload): array
     {
@@ -77,7 +76,7 @@ class PageResource extends BaseResource
      * Check the availability of a slug for a payment page.
      * @param string $slug
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function checkSlugAvailability(string $slug): array
     {
@@ -92,7 +91,7 @@ class PageResource extends BaseResource
      * @param int $id ID of the payment page
      * @param array $products Array of product IDs [123, 456]
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function addProducts(int $id, array $products): array
     {

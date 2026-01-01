@@ -3,7 +3,6 @@
 namespace StephenAsare\Paystack\Resources;
 
 use StephenAsare\Paystack\Exceptions\PaystackException;
-use Illuminate\Http\Client\ConnectionException;
 
 class SettlementResource extends BaseResource
 {
@@ -11,7 +10,7 @@ class SettlementResource extends BaseResource
      * List settlements made to your settlement accounts.
      * @param array $filters ['perPage', 'page', 'status', 'subaccount', 'from', 'to']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function list(array $filters = []): array
     {
@@ -26,7 +25,7 @@ class SettlementResource extends BaseResource
      * @param string|int $id The settlement ID
      * @param array $filters ['perPage', 'page', 'from', 'to']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function transactions(string|int $id, array $filters = []): array
     {

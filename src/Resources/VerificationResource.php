@@ -3,7 +3,6 @@
 namespace StephenAsare\Paystack\Resources;
 
 use StephenAsare\Paystack\Exceptions\PaystackException;
-use Illuminate\Http\Client\ConnectionException;
 
 class VerificationResource extends BaseResource
 {
@@ -13,7 +12,7 @@ class VerificationResource extends BaseResource
      * @param string $accountNumber
      * @param string $bankCode
      * @return array Contains account_name and account_number
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function resolveAccount(string $accountNumber, string $bankCode): array
     {
@@ -31,7 +30,7 @@ class VerificationResource extends BaseResource
      * This is a more rigorous check often used in South Africa.
      * @param array $payload ['account_name', 'account_number', 'account_type', 'bank_code', 'country_code', 'document_type', 'document_number']
      * @return array Verification status and message
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function validateAccount(array $payload): array
     {
@@ -46,7 +45,7 @@ class VerificationResource extends BaseResource
      * Helps identify card brand, type, and issuing country.
      * @param string $bin First 6 characters of the card
      * @return array Card details including bank and brand
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function resolveCardBin(string $bin): array
     {

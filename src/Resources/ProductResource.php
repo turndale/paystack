@@ -3,7 +3,6 @@
 namespace StephenAsare\Paystack\Resources;
 
 use StephenAsare\Paystack\Exceptions\PaystackException;
-use Illuminate\Http\Client\ConnectionException;
 
 class ProductResource extends BaseResource
 {
@@ -11,7 +10,7 @@ class ProductResource extends BaseResource
      * Create a product on your integration.
      * @param array $payload ['name', 'description', 'price', 'currency', 'unlimited', 'quantity']
      * @return array The created product details
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function create(array $payload): array
     {
@@ -29,7 +28,7 @@ class ProductResource extends BaseResource
      * List products available on your integration.
      * @param array $filters ['perPage', 'page', 'from', 'to']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function list(array $filters = []): array
     {
@@ -43,7 +42,7 @@ class ProductResource extends BaseResource
      * Get details of a product on your integration.
      * @param string|int $id The product ID
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function fetch(string|int $id): array
     {
@@ -58,7 +57,7 @@ class ProductResource extends BaseResource
      * @param string|int $id Product ID
      * @param array $payload ['name', 'description', 'price', 'currency', 'unlimited', 'quantity']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function update(string|int $id, array $payload): array
     {

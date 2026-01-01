@@ -3,7 +3,6 @@
 namespace StephenAsare\Paystack\Resources;
 
 use StephenAsare\Paystack\Exceptions\PaystackException;
-use Illuminate\Http\Client\ConnectionException;
 
 class PlanResource extends BaseResource
 {
@@ -11,7 +10,7 @@ class PlanResource extends BaseResource
      * Create a new subscription plan.
      * @param array $payload ['name', 'amount', 'interval', 'description', 'currency']
      * @return array Created plan details including plan_code
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function create(array $payload): array
     {
@@ -29,7 +28,7 @@ class PlanResource extends BaseResource
      * List all plans.
      * @param array $filters ['perPage', 'page', 'interval', 'amount']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function list(array $filters = []): array
     {
@@ -43,7 +42,7 @@ class PlanResource extends BaseResource
      * Get details of a plan.
      * @param string $idOrCode Plan ID or Code
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function fetch(string $idOrCode): array
     {
@@ -58,7 +57,7 @@ class PlanResource extends BaseResource
      * @param string $idOrCode
      * @param array $payload ['name', 'amount', 'description', 'update_existing_subscriptions']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function update(string $idOrCode, array $payload): array
     {

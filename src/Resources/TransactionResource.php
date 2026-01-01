@@ -4,7 +4,6 @@
 namespace StephenAsare\Paystack\Resources;
 
 use StephenAsare\Paystack\Exceptions\PaystackException;
-use Illuminate\Http\Client\ConnectionException;
 
 class TransactionResource extends BaseResource
 {
@@ -12,7 +11,7 @@ class TransactionResource extends BaseResource
      * Initialize a transaction to generate a checkout link.
      * @param array $payload ['email', 'amount', 'callback_url', 'plan', 'metadata', 'channels']
      * @return array The Paystack API response containing authorization_url and access_code
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function initialize(array $payload): array
     {
@@ -37,7 +36,7 @@ class TransactionResource extends BaseResource
      * Helper to get only the redirect URL for a transaction.
      * @param array $payload
      * @return string Redirect URL to Paystack Checkout
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function getAuthorizationUrl(array $payload): string
     {
@@ -49,7 +48,7 @@ class TransactionResource extends BaseResource
      * Confirm the status of a transaction.
      * @param string $reference Unique case-sensitive transaction reference
      * @return array Transaction details and status
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function verify(string $reference): array
     {
@@ -62,7 +61,7 @@ class TransactionResource extends BaseResource
      * List transactions carried out on your integration.
      * @param array $filters ['perPage', 'page', 'customer', 'status', 'from', 'to']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function list(array $filters = []): array
     {
@@ -75,7 +74,7 @@ class TransactionResource extends BaseResource
      * Get details of a single transaction.
      * @param string|int $id Transaction ID
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function fetch(string|int $id): array
     {

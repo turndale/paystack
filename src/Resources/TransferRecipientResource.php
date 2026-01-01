@@ -3,7 +3,6 @@
 namespace StephenAsare\Paystack\Resources;
 
 use StephenAsare\Paystack\Exceptions\PaystackException;
-use Illuminate\Http\Client\ConnectionException;
 
 class TransferRecipientResource extends BaseResource
 {
@@ -11,7 +10,7 @@ class TransferRecipientResource extends BaseResource
      * Creates a new recipient. 
      * @param array $payload ['type', 'name', 'account_number', 'bank_code', 'currency', 'description', 'metadata']
      * @return array The created recipient details including recipient_code
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function create(array $payload): array
     {
@@ -25,7 +24,7 @@ class TransferRecipientResource extends BaseResource
      * Create multiple transfer recipients in batches.
      * @param array $batch Array of recipient objects
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function bulkCreate(array $batch): array
     {
@@ -41,7 +40,7 @@ class TransferRecipientResource extends BaseResource
      * List transfer recipients available on your integration.
      * @param array $filters ['perPage', 'page', 'from', 'to']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function list(array $filters = []): array
     {
@@ -55,7 +54,7 @@ class TransferRecipientResource extends BaseResource
      * Fetch the details of a specific transfer recipient.
      * @param string|int $idOrCode
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function fetch(string|int $idOrCode): array
     {
@@ -70,7 +69,7 @@ class TransferRecipientResource extends BaseResource
      * @param string|int $idOrCode
      * @param array $payload ['name', 'email']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function update(string|int $idOrCode, array $payload): array
     {
@@ -84,7 +83,7 @@ class TransferRecipientResource extends BaseResource
      * Delete a transfer recipient (sets the recipient to inactive).
      * @param string|int $idOrCode
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function delete(string|int $idOrCode): array
     {

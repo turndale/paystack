@@ -3,7 +3,6 @@
 namespace StephenAsare\Paystack\Resources;
 
 use StephenAsare\Paystack\Exceptions\PaystackException;
-use Illuminate\Http\Client\ConnectionException;
 
 class ChargeResource extends BaseResource
 {
@@ -12,7 +11,6 @@ class ChargeResource extends BaseResource
      * @param array $payload ['email', 'amount', 'bank', 'mobile_money', 'ussd', 'authorization_code', etc.]
      * @return array Charge status (success, send_otp, send_pin, send_birthday, etc.)
      * @throws PaystackException
-     * @throws ConnectionException
      */
     public function create(array $payload): array
     {
@@ -31,7 +29,6 @@ class ChargeResource extends BaseResource
      * @param string $reference Transaction reference
      * @return array
      * @throws PaystackException
-     * @throws ConnectionException
      */
     public function submitPin(string $pin, string $reference): array
     {
@@ -49,7 +46,6 @@ class ChargeResource extends BaseResource
      * @param string $reference Transaction reference
      * @return array
      * @throws PaystackException
-     * @throws ConnectionException
      */
     public function submitOtp(string $otp, string $reference): array
     {
@@ -66,7 +62,7 @@ class ChargeResource extends BaseResource
      * @param string $birthday Format: YYYY-MM-DD
      * @param string $reference
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function submitBirthday(string $birthday, string $reference): array
     {
@@ -82,7 +78,7 @@ class ChargeResource extends BaseResource
      * Submit address details when requested.
      * @param array $payload ['address', 'city', 'state', 'zip_code', 'reference']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function submitAddress(array $payload): array
     {
@@ -96,7 +92,7 @@ class ChargeResource extends BaseResource
      * Use this if you get a 'pending' status or if an exception occurs during charge.
      * @param string $reference
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function checkStatus(string $reference): array
     {
@@ -111,7 +107,7 @@ class ChargeResource extends BaseResource
      * @param string $phone Phone number submitted by user
      * @param string $reference Transaction reference for the ongoing charge
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function submitPhone(string $phone, string $reference): array
     {

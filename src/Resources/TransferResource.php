@@ -3,7 +3,6 @@
 namespace StephenAsare\Paystack\Resources;
 
 use StephenAsare\Paystack\Exceptions\PaystackException;
-use Illuminate\Http\Client\ConnectionException;
 
 class TransferResource extends BaseResource
 {
@@ -11,7 +10,7 @@ class TransferResource extends BaseResource
      * Send money to a customer/recipient.
      * @param array $payload ['source', 'amount', 'recipient', 'reference', 'reason', 'currency']
      * @return array Transfer details. Status will be 'pending', 'success', or 'otp'.
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function initiate(array $payload): array
     {
@@ -33,7 +32,7 @@ class TransferResource extends BaseResource
      * @param string $transferCode The code from the initiate response
      * @param string $otp The OTP sent to the business phone
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function finalize(string $transferCode, string $otp): array
     {
@@ -53,7 +52,7 @@ class TransferResource extends BaseResource
      * @param string $source Defaults to 'balance'
      * @param string $currency Defaults to 'NGN'
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function bulk(array $transfers, string $source = 'balance', string $currency = 'NGN'): array
     {
@@ -71,7 +70,7 @@ class TransferResource extends BaseResource
      * List all transfers made on your integration.
      * @param array $filters ['perPage', 'page', 'recipient', 'from', 'to']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function list(array $filters = []): array
     {
@@ -85,7 +84,7 @@ class TransferResource extends BaseResource
      * Get details of a single transfer.
      * @param string|int $idOrCode Transfer ID or Code
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function fetch(string|int $idOrCode): array
     {
@@ -99,7 +98,7 @@ class TransferResource extends BaseResource
      * Verify the status of a transfer using its reference.
      * @param string $reference
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function verify(string $reference): array
     {

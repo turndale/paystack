@@ -3,7 +3,6 @@
 namespace StephenAsare\Paystack\Resources;
 
 use StephenAsare\Paystack\Exceptions\PaystackException;
-use Illuminate\Http\Client\ConnectionException;
 
 class CustomerResource extends BaseResource
 {
@@ -11,7 +10,7 @@ class CustomerResource extends BaseResource
      * Create a customer on your integration.
      * @param array $payload ['email', 'first_name', 'last_name', 'phone', 'metadata']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function create(array $payload): array
     {
@@ -24,7 +23,7 @@ class CustomerResource extends BaseResource
      * Get a customer's details.
      * @param string $emailOrCode
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function fetch(string $emailOrCode): array
     {
@@ -39,7 +38,7 @@ class CustomerResource extends BaseResource
      * @param string $code Customer's code
      * @param array $payload ['first_name', 'last_name', 'phone', 'metadata']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function update(string $code, array $payload): array
     {
@@ -53,7 +52,7 @@ class CustomerResource extends BaseResource
      * @param string $code Email, or customer code of customer to be identified
      * @param array $payload ['first_name', 'last_name', 'type', 'value', 'country', 'bvn', 'bank_code', 'account_number']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function validate(string $code, array $payload): array
     {
@@ -66,7 +65,7 @@ class CustomerResource extends BaseResource
      * Whitelist or blacklist a customer on your integration.
      * @param array $payload ['customer', 'risk_action']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function setRiskAction(array $payload): array
     {
@@ -79,7 +78,7 @@ class CustomerResource extends BaseResource
      * Deactivate an authorization for any payment channel.
      * @param string $authorizationCode Authorization code to be deactivated
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function deactivateAuthorization(string $authorizationCode): array
     {
@@ -94,7 +93,7 @@ class CustomerResource extends BaseResource
      * Initiate a request to create a reusable authorization code for recurring transactions.
      * @param array $payload ['email', 'channel', 'callback_url', 'account', 'address']
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function initializeAuthorization(array $payload): array
     {
@@ -107,7 +106,7 @@ class CustomerResource extends BaseResource
      * Check the status of an authorization request.
      * @param string $reference The reference returned in the initialization response
      * @return array
-     * @throws PaystackException|ConnectionException
+     * @throws PaystackException
      */
     public function verifyAuthorization(string $reference): array
     {
