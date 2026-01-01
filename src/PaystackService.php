@@ -19,6 +19,8 @@ use StephenAsare\Paystack\Resources\DisputeResource;
 use StephenAsare\Paystack\Resources\RefundResource;
 use StephenAsare\Paystack\Resources\VerificationResource;
 use StephenAsare\Paystack\Resources\MiscellaneousResource;
+use StephenAsare\Paystack\Resources\TransactionSplitResource;
+use StephenAsare\Paystack\Resources\SubaccountResource;
 
 
 
@@ -181,5 +183,23 @@ class PaystackService
     public function miscellaneous(): MiscellaneousResource
     {
         return new MiscellaneousResource($this->secret, $this->baseUrl);
+    }
+
+    /**
+     * Manage transaction splits for complex settlements.
+     * * @return TransactionSplitResource
+     */
+    public function transactionSplit(): TransactionSplitResource
+    {
+        return new TransactionSplitResource($this->secret, $this->baseUrl);
+    }
+
+    /**
+     * Manage subaccounts for split payments.
+     * * @return SubaccountResource
+     */
+    public function subaccount(): SubaccountResource
+    {
+        return new SubaccountResource($this->secret, $this->baseUrl);
     }
 }
