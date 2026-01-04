@@ -16,17 +16,14 @@ For full documentation, usage guides, and API reference, please visit:
 
 ## Features
 
-- **Subscription Management**: Fluent API for creating, cancelling, and resuming subscriptions.
-- **Webhooks**: Automatic handling of Paystack webhooks (payments, subscriptions, invoices).
-- **Trial Periods**: Built-in support for trial periods on subscriptions.
-- **Grace Periods**: Handle subscription expiration gracefully.
-- **Invoices**: Access and manage invoices directly.
-- **Generic Payment Support**: Support for Mobile Money and other payment channels.
+- **Complete API Wrapper**: Fluent interface for all Paystack API resources (Transactions, Subscriptions, Customers, etc.).
+- **Webhooks**: Automatic handling of Paystack webhooks with event dispatching.
+- **Type Safety**: Fully typed responses and resources.
 - **Testing**: Fully tested with PHPUnit and Orchestra Testbench.
 
 ## Requirements
 
-- PHP 8.1+
+- PHP 8.2+
 - Laravel 11.0+
 
 ## Installation
@@ -37,54 +34,60 @@ You can install the package via composer:
 composer require stephenasaredev/paystack
 ```
 
-After installing, run the installation command to publish the configuration and migrations:
+After installing, publish the configuration file:
 
 ```bash
-php artisan paystack:install
+php artisan vendor:publish --tag=paystack-config
 ```
 
-This will:
-1. Publish `config/paystack.php`
-2. Publish database migrations
-3. Ask if you want to run the migrations immediately
+Add your Paystack keys to your `.env` file:
+
+```env
+PAYSTACK_PUBLIC_KEY=pk_test_xxxx
+PAYSTACK_SECRET_KEY=sk_test_xxxx
+PAYSTACK_PAYMENT_URL=https://api.paystack.co
+```
 
 ## Quick Start
 
-### 1. Setup Billable Model
+### 1. Use the Facade
 
-Add the `Billable` trait to your User model:
+You can access any Paystack resource using the `Paystack` facade.
 
 ```php
-use StephenAsare\Paystack\Traits\HasPaystack;
-use StephenAsare\Paystack\Contracts\Billable;
+use StephenAsare\Paystack\Facades\Paystack;
 
-class User extends Authenticatable implements Billable
-{
-    use HasPaystack;
-}
+// Initialize a transaction
+$response = Paystack::transaction()->initialize([
+    'email' => 'customer@email.com',
+    'amount' => 5000 // NGN 50.00
+]);
+
+return redirect($response['data']['authorization_url']);
 ```
 
-### 2. Create a Subscription
+### 2. Manage Subscriptions
 
 ```php
-$user = User::find(1);
-
-// Create a subscription with a trial period
-$user->newSubscription('default', 'PLN_gx2wn530m0i3w3m')
-    ->trialDays(7)
-    ->create($authCode);
+// Create a subscription
+Paystack::subscription()->create([
+    'customer' => 'CUS_xxxx',
+    'plan' => 'PLN_xxxx'
+]);
 ```
 
-### 3. Check Subscription Status
+### 3. Transaction Splits
 
 ```php
-if ($user->subscribed('default')) {
-    // User has an active subscription...
-}
-
-if ($user->onTrial('default')) {
-    // User is on a trial period...
-}
+// Create a split
+Paystack::transactionSplit()->create([
+    'name' => 'Percentage Split',
+    'type' => 'percentage',
+    'currency' => 'NGN',
+    'subaccounts' => [
+        ['subaccount' => 'ACCT_xxxx', 'share' => 20]
+    ]
+]);
 ```
 
 ## Webhooks

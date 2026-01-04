@@ -96,4 +96,41 @@ class SubscriptionResourceTest extends PaystackTestCase
             $request->method() === 'GET'
         );
     }
+
+    /**
+     * @throws PaystackException
+     */
+    #[Test]
+    public function it_can_create_a_subscription_with_trial()
+    {
+        Http::fake([
+            'api.paystack.co/subscription' => Http::response([
+                'status' => true,
+                'message' => 'Subscription created successfully',
+                'data' => [
+                    'customer' => 12345,
+                    'plan' => 'PLN_pro_123',
+                    'subscription_code' => 'SUB_abc123',
+                    'start_date' => '2026-01-08T00:00:00.000Z'
+                ]
+            ], 200)
+        ]);
+
+        $startDate = now()->addDays(7)->toIso8601String();
+
+        $response = Paystack::subscription()->create([
+            'customer' => 'stephen@stephenasare.dev',
+            'plan' => 'PLN_pro_123',
+            'start_date' => $startDate
+        ]);
+
+        $this->assertTrue($response['status']);
+        $this->assertEquals('SUB_abc123', $response['data']['subscription_code']);
+
+        Http::assertSent(fn ($request) =>
+            $request['start_date'] === $startDate &&
+            $request->url() === 'https://api.paystack.co/subscription' &&
+            $request->method() === 'POST'
+        );
+    }
 }

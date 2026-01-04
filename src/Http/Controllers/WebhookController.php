@@ -17,7 +17,6 @@ use StephenAsare\Paystack\Events\InvoicePaymentFailed;
 use StephenAsare\Paystack\Events\ChargeDisputeCreated;
 use StephenAsare\Paystack\Events\TransferSuccess;
 use StephenAsare\Paystack\Events\TransferFailed;
-use StephenAsare\Paystack\Models\PaystackSubscription;
 
 class WebhookController extends Controller
 {
@@ -68,16 +67,6 @@ class WebhookController extends Controller
      */
     protected function handleSubscriptionCreate(array $payload)
     {
-        // We might want to update the subscription status if it exists but is pending
-        $data = $payload['data'];
-        $subscription = PaystackSubscription::query()->where('paystack_id', $data['subscription_code'])->first();
-
-        if ($subscription) {
-            $subscription->update([
-                'paystack_status' => $data['status'],
-            ]);
-        }
-
         SubscriptionCreated::dispatch($payload);
     }
 
@@ -89,20 +78,7 @@ class WebhookController extends Controller
      */
     protected function handleSubscriptionDisable(array $payload)
     {
-        $data = $payload['data'];
-        $subscription = PaystackSubscription::query()->where('paystack_id', $data['subscription_code'])->first();
-
-        if ($subscription) {
-            // If disabled, it's effectively cancelled immediately or at the end of the period?
-            // Usually "disabled" in Paystack means it's done.
-            if (is_null($subscription->ends_at)) {
-                $subscription->update([
-                    'paystack_status' => 'disabled',
-                    'ends_at' => now(),
-                ]);
-            }
-        }
-
+        // Dispatch event or handle logic
         SubscriptionUpdated::dispatch($payload);
     }
 
@@ -114,15 +90,6 @@ class WebhookController extends Controller
      */
     protected function handleSubscriptionNotRenew(array $payload)
     {
-        $data = $payload['data'];
-        $subscription = PaystackSubscription::query()->where('paystack_id', $data['subscription_code'])->first();
-
-        if ($subscription) {
-            $subscription->update([
-                'paystack_status' => 'non-renewing',
-            ]);
-        }
-
         SubscriptionUpdated::dispatch($payload);
     }
 

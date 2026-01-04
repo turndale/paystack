@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static \StephenAsare\Paystack\Resources\RefundResource refund()
  * @method static \StephenAsare\Paystack\Resources\VerificationResource verification()
  * @method static \StephenAsare\Paystack\Resources\MiscellaneousResource miscellaneous()
- * @method static \StephenAsare\Paystack\Resources\SplitResource split()
+ * @method static \StephenAsare\Paystack\Resources\TransactionSplitResource transactionSplit()
  * @method static \StephenAsare\Paystack\Resources\SubaccountResource subaccount()
  * 
  *
