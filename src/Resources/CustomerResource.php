@@ -47,6 +47,23 @@ class CustomerResource extends BaseResource
         return $this->handleResponse($response);
     }
 
+
+
+    /**
+     * List customers available on your integration.
+     * @param array $params ['perPage', 'page', 'from', 'to']
+     * @return array
+     * @throws PaystackException
+     */
+    public function list(array $params = []): array
+    {
+        /** @var \Illuminate\Http\Client\Response $response */
+        $response = $this->request()->get("$this->baseUrl/customer", $params);
+        return $this->handleResponse($response);
+    }
+
+    
+
     /**
      * Validate a customer's identity.
      * @param string $code Email, or customer code of customer to be identified
