@@ -31,6 +31,12 @@ class WebhookController extends Controller
         $payload = $request->all();
         $event = $payload['event'] ?? null;
 
+        // 1. Immediately return 200 OK to Paystack to prevent timeouts and retries
+        // Use fast_finish if your server supports it, or simply return the response object.
+        $response = new Response('Webhook Received', 200);
+
+        // 2. Dispatch events after the response is prepared.
+        // Developers should use Queued Listeners to ensure this doesn't delay the response.
         WebhookReceived::dispatch($payload);
 
         if ($event) {
@@ -38,124 +44,100 @@ class WebhookController extends Controller
 
             if (method_exists($this, $method)) {
                 $this->{$method}($payload);
-                
                 WebhookHandled::dispatch($payload);
-                
-                return new Response('Webhook Handled', 200);
             }
         }
 
-        return new Response('Webhook Received', 200);
+        return $response;
+    }
+
+    /**
+     * Helper to verify event type before dispatching.
+     */
+    protected function validateAndDispatch(string $expected, string $eventClass, array $payload): void
+    {
+        if (($payload['event'] ?? null) === $expected) {
+            $eventClass::dispatch($payload);
+        }
     }
 
     /**
      * Handle a successful charge.
-     *
-     * @param  array  $payload
-     * @return void
      */
     protected function handleChargeSuccess(array $payload)
     {
-        PaymentSuccess::dispatch($payload);
+        $this->validateAndDispatch('charge.success', PaymentSuccess::class, $payload);
     }
 
     /**
      * Handle a subscription creation.
-     *
-     * @param  array  $payload
-     * @return void
      */
     protected function handleSubscriptionCreate(array $payload)
     {
-        SubscriptionCreated::dispatch($payload);
+        $this->validateAndDispatch('subscription.create', SubscriptionCreated::class, $payload);
     }
 
     /**
      * Handle a subscription disable event.
-     *
-     * @param  array  $payload
-     * @return void
      */
     protected function handleSubscriptionDisable(array $payload)
     {
-        // Dispatch event or handle logic
-        SubscriptionUpdated::dispatch($payload);
+        $this->validateAndDispatch('subscription.disable', SubscriptionUpdated::class, $payload);
     }
 
     /**
      * Handle a subscription not renewing event.
-     *
-     * @param  array  $payload
-     * @return void
      */
     protected function handleSubscriptionNotRenew(array $payload)
     {
-        SubscriptionUpdated::dispatch($payload);
+        $this->validateAndDispatch('subscription.not_renew', SubscriptionUpdated::class, $payload);
     }
 
     /**
      * Handle an invoice creation event.
-     *
-     * @param  array  $payload
-     * @return void
      */
     protected function handleInvoiceCreate(array $payload)
     {
-        InvoiceCreated::dispatch($payload);
+        $this->validateAndDispatch('invoice.create', InvoiceCreated::class, $payload);
     }
 
     /**
      * Handle an invoice update event.
-     *
-     * @param  array  $payload
-     * @return void
      */
     protected function handleInvoiceUpdate(array $payload)
     {
-        InvoiceUpdated::dispatch($payload);
+        $this->validateAndDispatch('invoice.update', InvoiceUpdated::class, $payload);
     }
 
     /**
      * Handle an invoice payment failure event.
-     *
-     * @param  array  $payload
-     * @return void
      */
     protected function handleInvoicePaymentFailed(array $payload)
     {
-        InvoicePaymentFailed::dispatch($payload);
+        $this->validateAndDispatch('invoice.payment_failed', InvoicePaymentFailed::class, $payload);
     }
 
     /**
      * Handle a charge dispute creation event.
-     *
-     * @param  array  $payload
-     * @return void
      */
     protected function handleChargeDisputeCreate(array $payload)
     {
-        ChargeDisputeCreated::dispatch($payload);
+        $this->validateAndDispatch('charge.dispute.create', ChargeDisputeCreated::class, $payload);
     }
 
     /**
      * Handle a transfer success event.
-     *
-     * @param  array  $payload
-     * @return void
      */
     protected function handleTransferSuccess(array $payload)
     {
-        TransferSuccess::dispatch($payload);
+        $this->validateAndDispatch('transfer.success', TransferSuccess::class, $payload);
     }
 
     /**
      * Handle a transfer failure event.
-     *
-     * @param  array  $payload
-     * @return void
      */
     protected function handleTransferFailed(array $payload)
     {
-        TransferFailed::dispatch($payload);
+        $this->validateAndDispatch('transfer.failed', TransferFailed::class, $payload);
     }
 }
