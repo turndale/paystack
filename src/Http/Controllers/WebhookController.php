@@ -8,15 +8,6 @@ use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 use StephenAsare\Paystack\Events\WebhookReceived;
 use StephenAsare\Paystack\Events\WebhookHandled;
-use StephenAsare\Paystack\Events\PaymentSuccess;
-use StephenAsare\Paystack\Events\SubscriptionDisabled; 
-use StephenAsare\Paystack\Events\SubscriptionNotRenew;
-use StephenAsare\Paystack\Events\InvoiceCreated;
-use StephenAsare\Paystack\Events\InvoiceUpdated;
-use StephenAsare\Paystack\Events\InvoicePaymentFailed;
-use StephenAsare\Paystack\Events\ChargeDisputeCreated;
-use StephenAsare\Paystack\Events\TransferSuccess;
-use StephenAsare\Paystack\Events\TransferFailed;
 
 class WebhookController extends Controller
 {
@@ -31,12 +22,9 @@ class WebhookController extends Controller
         $payload = $request->all();
         $event = $payload['event'] ?? null;
 
-        // 1. Immediately return 200 OK to Paystack to prevent timeouts and retries
-        // Use fast_finish if your server supports it, or simply return the response object.
         $response = new Response('Webhook Received', 200);
 
-        // 2. Dispatch events after the response is prepared.
-        // Developers should use Queued Listeners to ensure this doesn't delay the response.
+        // General event
         WebhookReceived::dispatch($payload);
 
         if ($event) {
@@ -66,7 +54,7 @@ class WebhookController extends Controller
      */
     protected function handleChargeSuccess(array $payload)
     {
-        $this->validateAndDispatch('charge.success', PaymentSuccess::class, $payload);
+        $this->validateAndDispatch('charge.success', \StephenAsare\Paystack\Events\PaymentSuccess::class, $payload);
     }
 
     /**
@@ -74,25 +62,23 @@ class WebhookController extends Controller
      */
     protected function handleSubscriptionCreate(array $payload)
     {
-        $this->validateAndDispatch('subscription.create', SubscriptionCreated::class, $payload);
+        $this->validateAndDispatch('subscription.create', \StephenAsare\Paystack\Events\SubscriptionCreated::class, $payload);
     }
 
-/**
+    /**
      * Handle a subscription disable event.
-     * Use case: Payment failed or manual disable.
      */
     protected function handleSubscriptionDisable(array $payload)
     {
-        $this->validateAndDispatch('subscription.disable', SubscriptionDisabled::class, $payload);
+        $this->validateAndDispatch('subscription.disable', \StephenAsare\Paystack\Events\SubscriptionDisabled::class, $payload);
     }
 
     /**
      * Handle a subscription not renewing event.
-     * Use case: Customer cancelled but period hasn't ended yet.
      */
     protected function handleSubscriptionNotRenew(array $payload)
     {
-        $this->validateAndDispatch('subscription.not_renew', SubscriptionNotRenew::class, $payload);
+        $this->validateAndDispatch('subscription.not_renew', \StephenAsare\Paystack\Events\SubscriptionNotRenew::class, $payload);
     }
 
     /**
@@ -100,7 +86,7 @@ class WebhookController extends Controller
      */
     protected function handleInvoiceCreate(array $payload)
     {
-        $this->validateAndDispatch('invoice.create', InvoiceCreated::class, $payload);
+        $this->validateAndDispatch('invoice.create', \StephenAsare\Paystack\Events\InvoiceCreated::class, $payload);
     }
 
     /**
@@ -108,7 +94,7 @@ class WebhookController extends Controller
      */
     protected function handleInvoiceUpdate(array $payload)
     {
-        $this->validateAndDispatch('invoice.update', InvoiceUpdated::class, $payload);
+        $this->validateAndDispatch('invoice.update', \StephenAsare\Paystack\Events\InvoiceUpdated::class, $payload);
     }
 
     /**
@@ -116,7 +102,7 @@ class WebhookController extends Controller
      */
     protected function handleInvoicePaymentFailed(array $payload)
     {
-        $this->validateAndDispatch('invoice.payment_failed', InvoicePaymentFailed::class, $payload);
+        $this->validateAndDispatch('invoice.payment_failed', \StephenAsare\Paystack\Events\InvoicePaymentFailed::class, $payload);
     }
 
     /**
@@ -124,7 +110,7 @@ class WebhookController extends Controller
      */
     protected function handleChargeDisputeCreate(array $payload)
     {
-        $this->validateAndDispatch('charge.dispute.create', ChargeDisputeCreated::class, $payload);
+        $this->validateAndDispatch('charge.dispute.create', \StephenAsare\Paystack\Events\ChargeDisputeCreated::class, $payload);
     }
 
     /**
@@ -132,7 +118,7 @@ class WebhookController extends Controller
      */
     protected function handleTransferSuccess(array $payload)
     {
-        $this->validateAndDispatch('transfer.success', TransferSuccess::class, $payload);
+        $this->validateAndDispatch('transfer.success', \StephenAsare\Paystack\Events\TransferSuccess::class, $payload);
     }
 
     /**
@@ -140,6 +126,6 @@ class WebhookController extends Controller
      */
     protected function handleTransferFailed(array $payload)
     {
-        $this->validateAndDispatch('transfer.failed', TransferFailed::class, $payload);
+        $this->validateAndDispatch('transfer.failed', \StephenAsare\Paystack\Events\TransferFailed::class, $payload);
     }
 }
