@@ -5,7 +5,7 @@ namespace StephenAsare\Paystack\Events;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class SubscriptionUpdated
+class SubscriptionDisabled
 {
     use Dispatchable, SerializesModels;
 

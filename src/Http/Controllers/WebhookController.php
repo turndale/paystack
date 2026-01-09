@@ -9,8 +9,8 @@ use Symfony\Component\HttpFoundation\Response;
 use StephenAsare\Paystack\Events\WebhookReceived;
 use StephenAsare\Paystack\Events\WebhookHandled;
 use StephenAsare\Paystack\Events\PaymentSuccess;
-use StephenAsare\Paystack\Events\SubscriptionCreated;
-use StephenAsare\Paystack\Events\SubscriptionUpdated;
+use StephenAsare\Paystack\Events\SubscriptionDisabled; 
+use StephenAsare\Paystack\Events\SubscriptionNotRenew;
 use StephenAsare\Paystack\Events\InvoiceCreated;
 use StephenAsare\Paystack\Events\InvoiceUpdated;
 use StephenAsare\Paystack\Events\InvoicePaymentFailed;
@@ -77,20 +77,22 @@ class WebhookController extends Controller
         $this->validateAndDispatch('subscription.create', SubscriptionCreated::class, $payload);
     }
 
-    /**
+/**
      * Handle a subscription disable event.
+     * Use case: Payment failed or manual disable.
      */
     protected function handleSubscriptionDisable(array $payload)
     {
-        $this->validateAndDispatch('subscription.disable', SubscriptionUpdated::class, $payload);
+        $this->validateAndDispatch('subscription.disable', SubscriptionDisabled::class, $payload);
     }
 
     /**
      * Handle a subscription not renewing event.
+     * Use case: Customer cancelled but period hasn't ended yet.
      */
     protected function handleSubscriptionNotRenew(array $payload)
     {
-        $this->validateAndDispatch('subscription.not_renew', SubscriptionUpdated::class, $payload);
+        $this->validateAndDispatch('subscription.not_renew', SubscriptionNotRenew::class, $payload);
     }
 
     /**
