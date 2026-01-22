@@ -55,7 +55,7 @@ PAYSTACK_PAYMENT_URL=https://api.paystack.co
 You can access any Paystack resource using the `Paystack` facade.
 
 ```php
-use StephenAsare\Paystack\Facades\Paystack;
+use Turndale\Paystack\Facades\Paystack;
 
 // Initialize a transaction
 $response = Paystack::transaction()->initialize([
@@ -99,7 +99,7 @@ The package automatically handles Paystack webhooks for you. Just set up your we
 You can listen to events in your application:
 
 ```php
-use StephenAsare\Paystack\Events\PaymentSuccess;
+use Turndale\Paystack\Events\PaymentSuccess;
 
 Event::listen(PaymentSuccess::class, function ($event) {
     // Handle successful payment...
