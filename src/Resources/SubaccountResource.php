@@ -1,8 +1,8 @@
 <?php
 
-namespace StephenAsare\Paystack\Resources;
+namespace Turndale\Paystack\Resources;
 
-use StephenAsare\Paystack\Exceptions\PaystackException;
+use Turndale\Paystack\Exceptions\PaystackException;
 
 class SubaccountResource extends BaseResource
 {

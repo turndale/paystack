@@ -1,26 +1,26 @@
 <?php
 
 
-namespace StephenAsare\Paystack;
+namespace Turndale\Paystack;
 
-use StephenAsare\Paystack\Resources\TransactionResource;
-use StephenAsare\Paystack\Resources\PlanResource;
-use StephenAsare\Paystack\Resources\SubscriptionResource;
-use StephenAsare\Paystack\Resources\CustomerResource;
-use StephenAsare\Paystack\Resources\PageResource;
-use StephenAsare\Paystack\Resources\ProductResource;
-use StephenAsare\Paystack\Resources\PaymentRequestResource;
-use StephenAsare\Paystack\Resources\SettlementResource;
-use StephenAsare\Paystack\Resources\TransferRecipientResource;
-use StephenAsare\Paystack\Resources\TransferResource;
-use StephenAsare\Paystack\Resources\TransferControlResource;
-use StephenAsare\Paystack\Resources\ChargeResource;
-use StephenAsare\Paystack\Resources\DisputeResource;
-use StephenAsare\Paystack\Resources\RefundResource;
-use StephenAsare\Paystack\Resources\VerificationResource;
-use StephenAsare\Paystack\Resources\MiscellaneousResource;
-use StephenAsare\Paystack\Resources\TransactionSplitResource;
-use StephenAsare\Paystack\Resources\SubaccountResource;
+use Turndale\Paystack\Resources\TransactionResource;
+use Turndale\Paystack\Resources\PlanResource;
+use Turndale\Paystack\Resources\SubscriptionResource;
+use Turndale\Paystack\Resources\CustomerResource;
+use Turndale\Paystack\Resources\PageResource;
+use Turndale\Paystack\Resources\ProductResource;
+use Turndale\Paystack\Resources\PaymentRequestResource;
+use Turndale\Paystack\Resources\SettlementResource;
+use Turndale\Paystack\Resources\TransferRecipientResource;
+use Turndale\Paystack\Resources\TransferResource;
+use Turndale\Paystack\Resources\TransferControlResource;
+use Turndale\Paystack\Resources\ChargeResource;
+use Turndale\Paystack\Resources\DisputeResource;
+use Turndale\Paystack\Resources\RefundResource;
+use Turndale\Paystack\Resources\VerificationResource;
+use Turndale\Paystack\Resources\MiscellaneousResource;
+use Turndale\Paystack\Resources\TransactionSplitResource;
+use Turndale\Paystack\Resources\SubaccountResource;
 
 
 

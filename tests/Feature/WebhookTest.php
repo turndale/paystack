@@ -1,12 +1,12 @@
 <?php
 
-namespace StephenAsare\Paystack\Tests\Feature;
+namespace Turndale\Paystack\Tests\Feature;
 
-use StephenAsare\Paystack\Events\PaymentSuccess;
-use StephenAsare\Paystack\Events\SubscriptionCreated;
-use StephenAsare\Paystack\Events\WebhookHandled;
-use StephenAsare\Paystack\Events\WebhookReceived;
-use StephenAsare\Paystack\Tests\PaystackTestCase;
+use Turndale\Paystack\Events\PaymentSuccess;
+use Turndale\Paystack\Events\SubscriptionCreated;
+use Turndale\Paystack\Events\WebhookHandled;
+use Turndale\Paystack\Events\WebhookReceived;
+use Turndale\Paystack\Tests\PaystackTestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Config;

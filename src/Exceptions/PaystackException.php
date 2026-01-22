@@ -1,5 +1,5 @@
 <?php
-namespace StephenAsare\Paystack\Exceptions;
+namespace Turndale\Paystack\Exceptions;
 
 use RunTimeException;
 

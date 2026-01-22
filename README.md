@@ -2,9 +2,9 @@
 
 A robust, Cashier-like Paystack integration package for Laravel 11+. This package provides an expressive, fluent interface to Paystack's subscription billing services, handling boilerplate subscription code so you can focus on building your application.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/stephenasaredev/paystack.svg?style=flat-square)](https://packagist.org/packages/stephenasaredev/paystack)
-[![Total Downloads](https://img.shields.io/packagist/dt/stephenasaredev/paystack.svg?style=flat-square)](https://packagist.org/packages/stephenasaredev/paystack)
-[![License](https://img.shields.io/packagist/l/stephenasaredev/paystack.svg?style=flat-square&kill_cache=1)](https://packagist.org/packages/stephenasaredev/paystack)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/turndale/paystack.svg?style=flat-square)](https://packagist.org/packages/turndale/paystack)
+[![Total Downloads](https://img.shields.io/packagist/dt/turndale/paystack.svg?style=flat-square)](https://packagist.org/packages/turndale/paystack)
+[![License](https://img.shields.io/packagist/l/turndale/paystack.svg?style=flat-square&kill_cache=1)](https://packagist.org/packages/turndale/paystack)
 
 ## Documentation
 
@@ -31,7 +31,7 @@ For full documentation, usage guides, and API reference, please visit:
 You can install the package via composer:
 
 ```bash
-composer require stephenasaredev/paystack
+composer require turndale/paystack
 ```
 
 After installing, publish the configuration file:
@@ -124,6 +124,6 @@ MIT
 ## Support
 
 If you find this package helpful, please consider:
--  Starring the repository on [GitHub](https://github.com/stephenasaredev/paystack)
+-  Starring the repository on [GitHub](https://github.com/turndale/paystack)
 -  Following me on [Twitter/X](https://x.com/stephenasare1)
 

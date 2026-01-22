@@ -1,10 +1,10 @@
 <?php
 
-namespace StephenAsare\Paystack\Tests\Feature;
+namespace Turndale\Paystack\Tests\Feature;
 
-use StephenAsare\Paystack\Exceptions\PaystackException;
-use StephenAsare\Paystack\Facades\Paystack;
-use StephenAsare\Paystack\Tests\PaystackTestCase;
+use Turndale\Paystack\Exceptions\PaystackException;
+use Turndale\Paystack\Facades\Paystack;
+use Turndale\Paystack\Tests\PaystackTestCase;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
 use PHPUnit\Framework\Attributes\Test;

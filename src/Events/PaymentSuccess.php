@@ -1,6 +1,6 @@
 <?php
 
-namespace StephenAsare\Paystack\Events;
+namespace Turndale\Paystack\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;

@@ -1,6 +1,6 @@
 <?php
 
-use StephenAsare\Paystack\PaystackService;
+use Turndale\Paystack\PaystackService;
 
 if (!function_exists('paystack')) {
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace StephenAsare\Paystack;
+namespace Turndale\Paystack;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -28,7 +28,7 @@ class PaystackServiceProvider extends ServiceProvider
         });
 
         // Add an alias so developers can Type-hint the class in constructors
-        $this->app->alias('paystack', \StephenAsare\Paystack\PaystackService::class);
+        $this->app->alias('paystack', \Turndale\Paystack\PaystackService::class);
     }
 
     /**
@@ -52,7 +52,7 @@ class PaystackServiceProvider extends ServiceProvider
         }
 
 
-        $this->app['router']->aliasMiddleware('paystack.webhook', \StephenAsare\Paystack\Middleware\VerifyPaystackWebhook::class);
+        $this->app['router']->aliasMiddleware('paystack.webhook', \Turndale\Paystack\Middleware\VerifyPaystackWebhook::class);
     }
 }
 

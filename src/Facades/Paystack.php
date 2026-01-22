@@ -1,32 +1,32 @@
 <?php
 
 
-namespace StephenAsare\Paystack\Facades;
+namespace Turndale\Paystack\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static \StephenAsare\Paystack\Resources\TransactionResource transaction()
- * @method static \StephenAsare\Paystack\Resources\PlanResource plan()
- * @method static \StephenAsare\Paystack\Resources\SubscriptionResource subscription()
- * @method static \StephenAsare\Paystack\Resources\CustomerResource customer()
- * @method static \StephenAsare\Paystack\Resources\PageResource page()
- * @method static \StephenAsare\Paystack\Resources\ProductResource product()
- * @method static \StephenAsare\Paystack\Resources\PaymentRequestResource paymentRequest()
- * @method static \StephenAsare\Paystack\Resources\SettlementResource settlement()
- * @method static \StephenAsare\Paystack\Resources\TransferRecipientResource transferRecipient()
- * @method static \StephenAsare\Paystack\Resources\TransferResource transfer()
- * @method static \StephenAsare\Paystack\Resources\TransferControlResource transferControl()
- * @method static \StephenAsare\Paystack\Resources\ChargeResource charge()
- * @method static \StephenAsare\Paystack\Resources\DisputeResource dispute()
- * @method static \StephenAsare\Paystack\Resources\RefundResource refund()
- * @method static \StephenAsare\Paystack\Resources\VerificationResource verification()
- * @method static \StephenAsare\Paystack\Resources\MiscellaneousResource miscellaneous()
- * @method static \StephenAsare\Paystack\Resources\TransactionSplitResource transactionSplit()
- * @method static \StephenAsare\Paystack\Resources\SubaccountResource subaccount()
+ * @method static \Turndale\Paystack\Resources\TransactionResource transaction()
+ * @method static \Turndale\Paystack\Resources\PlanResource plan()
+ * @method static \Turndale\Paystack\Resources\SubscriptionResource subscription()
+ * @method static \Turndale\Paystack\Resources\CustomerResource customer()
+ * @method static \Turndale\Paystack\Resources\PageResource page()
+ * @method static \Turndale\Paystack\Resources\ProductResource product()
+ * @method static \Turndale\Paystack\Resources\PaymentRequestResource paymentRequest()
+ * @method static \Turndale\Paystack\Resources\SettlementResource settlement()
+ * @method static \Turndale\Paystack\Resources\TransferRecipientResource transferRecipient()
+ * @method static \Turndale\Paystack\Resources\TransferResource transfer()
+ * @method static \Turndale\Paystack\Resources\TransferControlResource transferControl()
+ * @method static \Turndale\Paystack\Resources\ChargeResource charge()
+ * @method static \Turndale\Paystack\Resources\DisputeResource dispute()
+ * @method static \Turndale\Paystack\Resources\RefundResource refund()
+ * @method static \Turndale\Paystack\Resources\VerificationResource verification()
+ * @method static \Turndale\Paystack\Resources\MiscellaneousResource miscellaneous()
+ * @method static \Turndale\Paystack\Resources\TransactionSplitResource transactionSplit()
+ * @method static \Turndale\Paystack\Resources\SubaccountResource subaccount()
  * 
  *
- *  @see \StephenAsare\Paystack\PaystackService
+ *  @see \Turndale\Paystack\PaystackService
  */
 class Paystack extends Facade
 {

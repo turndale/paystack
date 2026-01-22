@@ -1,9 +1,9 @@
 <?php
 
-namespace StephenAsare\Paystack\Tests;
+namespace Turndale\Paystack\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use StephenAsare\Paystack\PaystackServiceProvider;
+use Turndale\Paystack\PaystackServiceProvider;
 
 class PaystackTestCase extends Orchestra
 {
