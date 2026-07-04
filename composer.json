@@ -13,12 +13,12 @@
     ],
     "type": "library",
     "license": "MIT",
-    "homepage": "https://paystack.stephenasare.dev/",
+    "homepage": "https://paystack.solentik.com/",
     "authors": [
         {
             "name": "Stephen Asare",
-            "email": "me@stephenasare.dev",
-            "homepage": "https://paystack.stephenasare.dev/",
+            "email": "me@solentik.com",
+            "homepage": "https://paystack.solentik.com/",
             "role": "Developer"
         }
     ],

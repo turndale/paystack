@@ -10,7 +10,7 @@ A robust, Cashier-like Paystack integration package for Laravel 11+. This packag
 
 For full documentation, usage guides, and API reference, please visit:
 
-**<a href="https://paystack.stephenasare.dev/" target="_blank">https://paystack.stephenasare.dev/</a>**
+**<a href="https://paystack.solentik.com/" target="_blank">https://paystack.solentik.com/</a>**
 
 ---
 

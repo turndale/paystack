@@ -31,7 +31,7 @@ class SubscriptionResourceTest extends PaystackTestCase
         ]);
 
         $response = Paystack::subscription()->create([
-            'customer' => 'stephen@stephenasare.dev',
+            'customer' => 'stephen@solentik.com',
             'plan' => 'PLN_pro_123'
         ]);
 
@@ -119,7 +119,7 @@ class SubscriptionResourceTest extends PaystackTestCase
         $startDate = now()->addDays(7)->toIso8601String();
 
         $response = Paystack::subscription()->create([
-            'customer' => 'stephen@stephenasare.dev',
+            'customer' => 'stephen@solentik.com',
             'plan' => 'PLN_pro_123',
             'start_date' => $startDate
         ]);

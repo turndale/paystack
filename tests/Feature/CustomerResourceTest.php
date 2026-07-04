@@ -24,7 +24,7 @@ class CustomerResourceTest extends PaystackTestCase
                 'status' => true,
                 'message' => 'Customer created',
                 'data' => [
-                    'email' => 'stephen@stephenasare.dev',
+                    'email' => 'stephen@solentik.com',
                     'customer_code' => 'CUS_12345',
                     'id' => 98765
                 ]
@@ -33,7 +33,7 @@ class CustomerResourceTest extends PaystackTestCase
 
         // 2. Act
         $response = Paystack::customer()->create([
-            'email' => 'stephen@stephenasare.dev',
+            'email' => 'stephen@solentik.com',
             'first_name' => 'Stephen',
             'last_name' => 'Asare'
         ]);
@@ -44,7 +44,7 @@ class CustomerResourceTest extends PaystackTestCase
 
         Http::assertSent(function ($request) {
             return $request->url() === 'https://api.paystack.co/customer' &&
-                $request['email'] === 'stephen@stephenasare.dev';
+                $request['email'] === 'stephen@solentik.com';
         });
     }
 
@@ -55,7 +55,7 @@ class CustomerResourceTest extends PaystackTestCase
     #[Test]
     public function it_can_fetch_a_customer_by_email_or_code()
     {
-        $identifier = 'stephen@stephenasare.dev';
+        $identifier = 'stephen@solentik.com';
 
         // 1. Arrange
         Http::fake([
@@ -185,7 +185,7 @@ class CustomerResourceTest extends PaystackTestCase
         ]);
 
         $response = Paystack::customer()->initializeAuthorization([
-            'email' => 'stephen@stephenasare.dev',
+            'email' => 'stephen@solentik.com',
             'channel' => 'direct_debit'
         ]);
 

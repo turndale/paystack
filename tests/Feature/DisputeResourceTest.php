@@ -93,7 +93,7 @@ class DisputeResourceTest extends PaystackTestCase
         ]);
 
         $response = Paystack::dispute()->addEvidence($disputeId, [
-            'customer_email' => 'stephen@stephenasare.dev',
+            'customer_email' => 'stephen@solentik.com',
             'customer_name' => 'Stephen Asare',
         ]);
 
