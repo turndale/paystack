@@ -4,6 +4,9 @@ namespace Turndale\Paystack\Tests\Feature;
 
 use Turndale\Paystack\Events\PaymentSuccess;
 use Turndale\Paystack\Events\SubscriptionCreated;
+use Turndale\Paystack\Events\TransferFailed;
+use Turndale\Paystack\Events\TransferReversed;
+use Turndale\Paystack\Events\TransferSuccess;
 use Turndale\Paystack\Events\WebhookHandled;
 use Turndale\Paystack\Events\WebhookReceived;
 use Turndale\Paystack\Tests\PaystackTestCase;
@@ -76,5 +79,62 @@ class WebhookTest extends PaystackTestCase
         ])->assertOk();
 
         Event::assertDispatched(SubscriptionCreated::class);
+    }
+
+    public function test_it_handles_transfer_success()
+    {
+        Event::fake();
+        Config::set('paystack.secret', 'sk_test_mock_123');
+
+        $payload = [
+            'event' => 'transfer.success',
+            'data' => ['transfer_code' => 'TRF_123', 'status' => 'success'],
+        ];
+
+        $signature = hash_hmac('sha512', json_encode($payload), 'sk_test_mock_123');
+
+        $this->postJson('paystack/webhook', $payload, [
+            'x-paystack-signature' => $signature,
+        ])->assertOk();
+
+        Event::assertDispatched(TransferSuccess::class);
+    }
+
+    public function test_it_handles_transfer_failed()
+    {
+        Event::fake();
+        Config::set('paystack.secret', 'sk_test_mock_123');
+
+        $payload = [
+            'event' => 'transfer.failed',
+            'data' => ['transfer_code' => 'TRF_123', 'status' => 'failed'],
+        ];
+
+        $signature = hash_hmac('sha512', json_encode($payload), 'sk_test_mock_123');
+
+        $this->postJson('paystack/webhook', $payload, [
+            'x-paystack-signature' => $signature,
+        ])->assertOk();
+
+        Event::assertDispatched(TransferFailed::class);
+    }
+
+    public function test_it_handles_transfer_reversed()
+    {
+        Event::fake();
+        Config::set('paystack.secret', 'sk_test_mock_123');
+
+        $payload = [
+            'event' => 'transfer.reversed',
+            'data' => ['transfer_code' => 'TRF_123', 'status' => 'reversed'],
+        ];
+
+        $signature = hash_hmac('sha512', json_encode($payload), 'sk_test_mock_123');
+
+        $this->postJson('paystack/webhook', $payload, [
+            'x-paystack-signature' => $signature,
+        ])->assertOk();
+
+        Event::assertDispatched(TransferReversed::class);
     }
 }

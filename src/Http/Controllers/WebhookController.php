@@ -128,4 +128,12 @@ class WebhookController extends Controller
     {
         $this->validateAndDispatch('transfer.failed', \Turndale\Paystack\Events\TransferFailed::class, $payload);
     }
+
+    /**
+     * Handle a transfer reversal event.
+     */
+    protected function handleTransferReversed(array $payload)
+    {
+        $this->validateAndDispatch('transfer.reversed', \Turndale\Paystack\Events\TransferReversed::class, $payload);
+    }
 }

@@ -7,8 +7,12 @@ use Turndale\Paystack\Exceptions\PaystackException;
 class TransferRecipientResource extends BaseResource
 {
     /**
-     * Creates a new recipient. 
-     * @param array $payload ['type', 'name', 'account_number', 'bank_code', 'currency', 'description', 'metadata']
+     * Creates a new recipient. A duplicate account number resolves to the existing record instead of erroring.
+     * @param array $payload ['type', 'name', 'account_number', 'bank_code', 'currency', 'description',
+     *   'authorization_code', 'metadata']
+     *   'type' is one of: nuban, ghipss, mobile_money, basa.
+     *   'account_number'/'bank_code' are required for every type except an authorization-based recipient
+     *   (set 'authorization_code' instead; reuses a customer's existing authorization).
      * @return array The created recipient details including recipient_code
      * @throws PaystackException
      */
@@ -21,9 +25,10 @@ class TransferRecipientResource extends BaseResource
     }
 
     /**
-     * Create multiple transfer recipients in batches.
+     * Create multiple transfer recipients in batches. A duplicate account number in the batch resolves to the
+     * existing record rather than erroring.
      * @param array $batch Array of recipient objects
-     * @return array
+     * @return array data.success holds the accepted recipients; data.errors holds any rejected ones.
      * @throws PaystackException
      */
     public function bulkCreate(array $batch): array
@@ -53,7 +58,8 @@ class TransferRecipientResource extends BaseResource
     /**
      * Fetch the details of a specific transfer recipient.
      * @param string|int $idOrCode
-     * @return array
+     * @return array data.details holds account_number, account_name (frequently null), bank_code, bank_name,
+     *   and (for authorization-based recipients) authorization_code.
      * @throws PaystackException
      */
     public function fetch(string|int $idOrCode): array
@@ -68,7 +74,7 @@ class TransferRecipientResource extends BaseResource
      * Update a transfer recipient's details.
      * @param string|int $idOrCode
      * @param array $payload ['name', 'email']
-     * @return array
+     * @return array The full updated recipient, not just a message.
      * @throws PaystackException
      */
     public function update(string|int $idOrCode, array $payload): array
@@ -82,7 +88,7 @@ class TransferRecipientResource extends BaseResource
     /**
      * Delete a transfer recipient (sets the recipient to inactive).
      * @param string|int $idOrCode
-     * @return array
+     * @return array Only status/message; there is no data key at all on a successful delete.
      * @throws PaystackException
      */
     public function delete(string|int $idOrCode): array
